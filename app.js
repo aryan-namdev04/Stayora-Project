@@ -110,6 +110,11 @@ app.get("/demouser", async (req, res)=>{
 
 
 // USE 
+
+app.get("/", (req, res) => {
+    res.redirect("/listings");
+});
+
 app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews", reviewRouter);
 app.use("/", userRouter);
@@ -120,7 +125,6 @@ app.all("/{*splat}", (req, res, next)=>{
 });
 
 app.use((err, req, res, next)=>{
-    console.log("ERROR =>", err);   // 👈 ye line add kar
     let {statusCode = 500, message = "Something went wrong"}=err;
     // res.status(statusCode).send(message);
     res.status(statusCode).render("error.ejs", {message});
