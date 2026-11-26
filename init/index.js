@@ -23,7 +23,7 @@ const initDB = async () => {
 
     initData.data = initData.data.map((obj) => ({
         ...obj,
-        owner: "6a2fbc8fee0f8a8d19f94c78",
+        owner: "6b07f57faa585d2029cac5d2",
     }));
 
     await Listing.insertMany(initData.data);
